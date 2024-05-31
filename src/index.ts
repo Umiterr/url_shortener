@@ -1,4 +1,4 @@
 import "dotenv/config";
-import { onDatabaseConnect } from "./config/knex";
+import knex, { onDatabaseConnect } from "./config/knex";
 
 onDatabaseConnect();
