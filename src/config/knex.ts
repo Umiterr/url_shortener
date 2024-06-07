@@ -15,7 +15,6 @@ const knex = Knex({
 
 export const onDatabaseConnect = async () => {
   try {
-    // Usar queryBuilder para evitar la advertencia de deprecación
     await knex.queryBuilder().select(knex.raw("1"));
     console.log("Database connected successfully");
   } catch (error) {
