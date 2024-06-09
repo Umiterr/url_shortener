@@ -1,12 +1,11 @@
 import knex from "knex";
+import { validateCreateShortURL, validateUpdateShortURL } from "./validations";
 
 export const createShortURL = async (
   body: { url: string; id?: string },
   user_id: number
 ) => {
-  if (!body.url) {
-    throw new Error("URL must be provided");
-  }
+  validateCreateShortURL(body);
   if (body.id) {
     const current_record = await knex("urls").where({ id: body.id }).first();
     if (current_record) {
@@ -35,9 +34,7 @@ export const updateURL = async (
   body: { url: string },
   user_id: number
 ) => {
-  if (!body.url) {
-    throw new Error("URL is required");
-  }
+  validateUpdateShortURL(body);
   const url = await knex("urls").where({ id }).select(["user_id"]).first();
   if (!url) {
     throw new Error("URL not found");
