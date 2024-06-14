@@ -12,3 +12,13 @@ yarn-error.log
 
 
 *.env
+
+
+# Ignorar archivos de configuración de ESLint
+.eslintignore
+.eslintrc.js
+.eslintrc.json
+.eslintrc.yml
+.eslintrc
+
+eslintcache
