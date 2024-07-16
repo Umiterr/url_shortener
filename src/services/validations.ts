@@ -36,3 +36,9 @@ export const validateRegister = (body: RequestBody) =>
     username: "string|required|min:4|max:8",
     password: "string|required|min:6",
   });
+
+export const validateLogin = (body: RequestBody) =>
+  validateBody(body, {
+    username: "string|required",
+    password: "string|required",
+  });
