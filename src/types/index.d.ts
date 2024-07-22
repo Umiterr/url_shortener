@@ -6,6 +6,11 @@ export interface User {
   updated_at: string;
 }
 
+export interface RegisterBody {
+  username: string;
+  password: string;
+}
+
 export interface Url {
   id: string;
   url: string;
